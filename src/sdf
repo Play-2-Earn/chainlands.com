@@ -1,0 +1,144 @@
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faLeaf, 
+  faShoppingBag, 
+  faSeedling, 
+  faTag,
+  faLink,
+  faShieldAlt,
+  faCoins,
+  faNetworkWired
+} from "@fortawesome/free-solid-svg-icons";
+
+// ... (keep all previous styled components)
+
+// Modified Web3Badge with solid icon
+const Web3Badge = styled.div`
+  background: rgba(42,90,42,0.1);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1rem 0;
+  backdrop-filter: blur(5px);
+`;
+
+// Updated App component
+function App() {
+  return (
+    <Container>
+      <GradientOverlay />
+      <Flower style={{ top: "10%", left: "5%" }} />
+      <Flower style={{ top: "20%", right: "5%", animationDelay: "0.5s" }} />
+
+      <HeroSection>
+        <Title initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
+          bloomsbury.store
+        </Title>
+
+        <Web3Badge>
+          <FontAwesomeIcon icon={faNetworkWired} color="#2a5a2a" />
+          <span>Blockchain-Powered Botanical Platform</span>
+        </Web3Badge>
+
+        <p style={{
+          fontSize: "1.2rem",
+          color: "#666",
+          maxWidth: "600px",
+          margin: "0 auto 2rem",
+          lineHeight: "1.6"
+        }}>
+          Cultivating beauty through blockchain-verified botanical experiences
+        </p>
+      </HeroSection>
+
+      <BlockchainStatus>
+        <StatusItem>
+          <FontAwesomeIcon icon={faLink} color="#2a5a2a" />
+          <div>
+            <h4>Blockchain Verified</h4>
+            <small>Plant Provenance Tracking</small>
+          </div>
+        </StatusItem>
+        <StatusItem>
+          <FontAwesomeIcon icon={faShieldAlt} color="#2a5a2a" />
+          <div>
+            <h4>NFT Certificates</h4>
+            <small>Digital Plant Ownership</small>
+          </div>
+        </StatusItem>
+      </BlockchainStatus>
+
+      <Grid>
+        <ProductCard
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <IconWrapper>
+            <FontAwesomeIcon icon={faLeaf} size="2x" color="white" />
+          </IconWrapper>
+          <h3>NFT Plant Collections</h3>
+          <p>Own digital twins of bloomsbury.store's plants</p>
+          <div style={{ marginTop: "1rem" }}>
+            <small style={{ color: "#2a5a2a" }}>ERC-721 Verified</small>
+          </div>
+        </ProductCard>
+
+        <ProductCard
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <IconWrapper>
+            <FontAwesomeIcon icon={faSeedling} size="2x" color="white" />
+          </IconWrapper>
+          <h3>DAO Gardens</h3>
+          <p>Community-governed green spaces</p>
+          <div style={{ marginTop: "1rem" }}>
+            <small style={{ color: "#2a5a2a" }}>Decentralized Governance</small>
+          </div>
+        </ProductCard>
+
+        <ProductCard
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <IconWrapper>
+            <FontAwesomeIcon icon={faCoins} size="2x" color="white" />
+          </IconWrapper>
+          <h3>Crypto Payments</h3>
+          <p>Digital currency accepted at bloomsbury.store</p>
+          <div style={{ marginTop: "1rem" }}>
+            <small style={{ color: "#2a5a2a" }}>Multi-chain Support</small>
+          </div>
+        </ProductCard>
+      </Grid>
+
+      <SmartContractPanel>
+        <h3 style={{ color: "#2a5a2a", marginBottom: "1rem" }}>
+          <FontAwesomeIcon icon={faNetworkWired} /> Smart Contract Verification
+        </h3>
+        <code style={{ color: "#666", wordWrap: "break-word" }}>
+          {`contract BloomsburyStore {`}<br/>
+          {`  mapping(uint => Plant) public plants;`}<br/>
+          {`  struct Plant {`}<br/>
+          {`    string dna;`}<br/>
+          {`    address owner;`}<br/>
+          {`    uint originTimestamp;`}<br/>
+          {`  }`}<br/>
+          {`}`}
+        </code>
+      </SmartContractPanel>
+
+      {/* Keep the rest of the existing code */}
+    </Container>
+  );
+}
+
+export default App;
